@@ -66,13 +66,13 @@ For each run, the script sampled 100 images (10 per class) with a fixed random s
 ### 3.1 System Prompts Used
 
 **Baseline Prompt:**
-```bash
+```text
 You are an image classifier for CIFAR-10. The input images are small (32x32) and low detail.
 Only respond with exactly one of these labels: airplane, automobile, bird, cat, deer, dog, frog, horse, ship, truck.
 If unsure, choose the most likely. Do not include punctuation or extra words.
 ```
 Rules Prompt:
-```bash
+```text
 Act as a strict CIFAR-10 grader. RULES:
 1) Output only one token from this set: airplane, automobile, bird, cat, deer, dog, frog, horse, ship, truck
 2) Prefer coarse shape and context over texture (e.g., airplane has wings + fuselage; ship sits on water; frog is green with squat body).
