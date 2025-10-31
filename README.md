@@ -63,6 +63,24 @@ Two system prompts were tested:
 
 For each run, the script sampled 100 images (10 per class) with a fixed random seed, encoded them in base64, and sent them to the API via the `/api/chat/completions` endpoint. The model’s responses were parsed, normalized, and compared against ground-truth labels to compute accuracy and produce a confusion matrix.
 
+### 3.1 System Prompts Used
+
+**Baseline Prompt:**
+```bash
+You are an image classifier for CIFAR-10. The input images are small (32x32) and low detail.
+Only respond with exactly one of these labels: airplane, automobile, bird, cat, deer, dog, frog, horse, ship, truck.
+If unsure, choose the most likely. Do not include punctuation or extra words.
+```
+Rules Prompt:
+```bash
+Act as a strict CIFAR-10 grader. RULES:
+1) Output only one token from this set: airplane, automobile, bird, cat, deer, dog, frog, horse, ship, truck
+2) Prefer coarse shape and context over texture (e.g., airplane has wings + fuselage; ship sits on water; frog is green with squat body).
+3) If it's a car-like road vehicle say "automobile"; if it has a cargo bed or looks heavy-duty say "truck"; if on water say "ship".
+4) For animals: beak + wings = "bird"; whiskers + ears + feline face = "cat"; antlers/hooves = "deer"; canine snout = "dog"; squat green amphibian = "frog"; long face + mane = "horse".
+5) No extra text. Exactly one of the ten labels.
+```
+
 ---
 
 ## 4. Results  
