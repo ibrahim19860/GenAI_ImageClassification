@@ -51,7 +51,7 @@ The rules-based prompt reduced errors by guiding the model’s attention toward 
 ### Confusion Matrices  
 
 **Baseline Prompt**  
-![Baseline Confusion Matrix](run_baseline_confusion_matrix.png)
+![Baseline Confusion Matrix](run_run_confusion_matrix.png)
 
 **Rules Prompt**  
 ![Rules Confusion Matrix](run_rules_confusion_matrix.png)
