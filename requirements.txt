@@ -1,0 +1,8 @@
+requests
+python-dotenv
+torch
+torchvision
+pillow
+scikit-learn
+matplotlib
+pyyaml

@@ -1,0 +1,8 @@
+__pycache__/
+.ipynb_checkpoints/
+*.env
+*.jsonl
+*.png
+*.csv
+run_manifest.json
+data/

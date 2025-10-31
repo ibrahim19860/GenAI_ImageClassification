@@ -1,0 +1,15 @@
+{
+  "model": "gemma3:4b",
+  "base_url": "https://ai.sooners.us",
+  "seed": 1337,
+  "per_class": 10,
+  "limit": 100,
+  "system_prompt_key": "rules",
+  "temperature": 0.0,
+  "accuracy": 0.58,
+  "outputs": {
+    "confusion_matrix_png": "run_rules_confusion_matrix.png",
+    "predictions_csv": "run_rules_predictions.csv",
+    "misclassifications_jsonl": "run_rules_misclassifications.jsonl"
+  }
+}
