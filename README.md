@@ -1,4 +1,4 @@
-# GenAI Tools: Image Classification Using Vision-Language Model  
+# GEN_AI Tools: Image Classification Using Vision-Language Model  
 
 ---
 
@@ -28,6 +28,32 @@ pip install -r requirements.txt
 
 ---
 
+## 2.1 How to Run the Code
+
+After installing dependencies and creating your .soonerai.env file, run the following commands to reproduce both experiments:
+# Baseline prompt classification
+```bash
+python3 cifar10_classify.py --system-prompt baseline --out-prefix run_baseline
+```
+
+# Rules-based prompt classification
+```bash
+python3 cifar10_classify.py --system-prompt rules --out-prefix run_rules
+```
+
+This will:
+Load and sample 100 images (10 per CIFAR-10 class).
+Send each image to the Gemma3:4b model via the ai.sooners.us API.
+Compute accuracy and save the confusion matrix and prediction files.
+The results will be saved as:
+```bash
+run_baseline_confusion_matrix.png
+run_rules_confusion_matrix.png
+run_predictions.csv
+run_misclassifications.jsonl
+```
+---
+
 ## 3. Experimental Methodology  
 
 Two system prompts were tested:  
@@ -45,6 +71,13 @@ The baseline prompt achieved an overall accuracy of 54%, while the rules prompt 
 
 Misclassifications in the baseline run frequently involved visually similar categories such as automobile and truck, cat and dog, and airplane and ship.  
 The rules-based prompt reduced errors by guiding the model’s attention toward structural differences—such as the presence of wings, fuselage, or water backgrounds—resulting in better reasoning.
+
+```bash
+| Prompt | Accuracy |
+|---------|-----------|
+| Baseline | 54% |
+| Rules | 58% |
+```
 
 ---
 
@@ -92,9 +125,4 @@ The small improvement from 54% to 58% may seem minor but is significant given th
 This project confirms that prompt clarity and contextual structure directly influence VLM accuracy. By shifting from a minimal baseline prompt to a descriptive rules-based one, classification accuracy improved from 54% to 58%. The results illustrate that even without retraining, well-designed prompts can enhance the interpretive reasoning of vision-language models, particularly on small and low-resolution datasets such as CIFAR-10.  
 
 These findings reinforce the broader principle that language design is an integral part of effective AI system performance.
-
----
-
-**Implemented and tested by:** Ibrahim Mohammed  
-**Course:** CS5903 — GenAI Tools, Fall 2025  
-**Institution:** University of Oklahoma  
+  
